@@ -9,7 +9,7 @@ int testmulti() {
 	TMultiGraph *mg = new TMultiGraph();
 	TGraph *g[100]; //put each graph here
 	
-	for(int i = 0; i < 100; i++) {
+	for(int i = 0; i < 10; i++) {
 		std::ostringstream oss;
 		if(i < 10)
 			oss << name_template << 0 << i << ".txt"; 
