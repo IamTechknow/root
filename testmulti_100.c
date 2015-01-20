@@ -9,7 +9,11 @@ int testmulti() {
 	TMultiGraph *mg = new TMultiGraph();
 	TGraph *g[100]; //put each graph here
 	
+	//Start benchmark to measure run time
+	gBenchmark->Start("testmulti");
+	
 	for(int i = 0; i < 100; i++) {
+		//Parse Text filename to obtain file stream for the file.
 		std::ostringstream oss;
 		if(i < 10)
 			oss << name_template << 0 << i << ".txt"; 
@@ -41,6 +45,9 @@ int testmulti() {
 	c1->SetGrid();
 	mg->SetTitle("Mutliple Graphs");
 	mg->Draw("a");
+	
+	//Show benchmark results
+	gBenchmark->Show("testmulti");
 	
 	// TCanvas::Update() draws the frame, after which one can change it
 	c1->Update();
